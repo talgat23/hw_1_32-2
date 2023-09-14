@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Program Lang</title>
+</head>
+<body>
+<h1>Библиотека</h1>
+{% for book in lang_key %}
+    <h2>{{ book.title }}</h2>
+    <p>{{ book.description }}</p>
+    <img src="{{ book.image.url }}" alt="Изображение" width="400" height="400">
+    <p>Автор: {{ book.author }}</p>
+    <p>Стоимость: {{ book.cost }}</p>
+{% endfor %}
+</body>
+</html>
