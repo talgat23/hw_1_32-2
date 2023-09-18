@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch List</title>
+</head>
+<body>
+  <h1>Каталог часов</h1>
+  {% for i in shop_key %}
+
+  <h2>{{i.title}}</h2>
+  <p><b>{{i.description}}</b></p>
+  <br>
+  <button><a href="/watch_detail/{{i.id}}">Подробнее</a></button>
+
+  {% endfor %}
+</body>
+</html>
