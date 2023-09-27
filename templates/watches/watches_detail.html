@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detail</title>
-</head>
-<body>
-<h>{{shop_id_key.title}}</h>
-<p><b>{{shop_id_key.description}}</b></p>
-<img src="{{shop_id_key.image.url}}" alt="image">
-<p><b>{{shop_id_key.country_made}}</b></p>
-<p><i>{{shop_id_key.color}}</i></p>
-<p><i>{{shop_id_key.size}}</i></p>
-<p><b>{{shop_id_key.cost}}</b></p>
-<iframe src="{{shop_id_key.video}}" frameborder="0"></iframe>
-<button><a href="/watch_detail/{{shop_id_key.id}}/delete/">Удалить</a></button>
-<button><a href="/watch_detail/{{shop_id_key.id}}/update/">Изменить</a></button>
-
-</body>
-</html>
+{% include 'watches/header.html' %}
+<center>
+<div class="card" style="width: 18rem;">
+  <img src="{{shop_id_key.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Заголовок карточки</h5>
+    <p class="card-text">{{shop_id_key.description}}</p>
+    <p class="card-text">{{shop_id_key.country_made}}</p>
+    <p class="card-text">{{shop_id_key.color}}</p>
+    <p class="card-text">{{shop_id_key.size}}</p>
+    <p class="card-text">{{shop_id_key.cost}}</p>
+  </div>
+</div>
+    <iframe src="{{shop_id_key.video}}" frameborder="0" width="640" height="420"></iframe>
+    <br>
+    <button><a type="button" class="btn btn-danger"><a style="text-decoration: none"  href="/watch_detail/{{shop_id_key.id}}/delete/">Удалить</a></button>
+    <button><a type="button" class="btn btn-warning"><a style="text-decoration: none" href="/watch_detail/{{shop_id_key.id}}/update/">Изменить</a></button>
+</center>
+{% include 'watches/footer.html' %}

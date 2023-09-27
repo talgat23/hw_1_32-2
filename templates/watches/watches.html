@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Watch List</title>
-</head>
-<body>
-  <h1>Каталог часов</h1>
-  <button><a href="/create_watch/{{i.id}}">Добавить часы</a></button>
-  {% for i in shop_key %}
+{% include 'watches/header.html' %}
 
-  <h2>{{i.title}}</h2>
-  <p><b>{{i.description}}</b></p>
-  <br>
-  <button><a href="/watch_detail/{{i.id}}">Подробнее</a></button>
+<h1 style="text-align: center">Каталог часов</h1>
+<br>
+{% for i in shop_key %}
+  <center>
+    <div class="qwerty" style="width: 18rem;">
+      <img src="{{i.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{i.title}}</h5>
+        <p class="card-text">{{i.description}}.</p>
+        <a href="/watch_detail/{{i.id}}" class="btn btn-primary">Подробнее</a>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  </center>
+{% endfor %}
 
-  {% endfor %}
-</body>
-</html>
+
+
+{% include 'watches/footer.html' %}
