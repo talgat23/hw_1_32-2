@@ -1,19 +1,31 @@
 {% include 'watches/header.html' %}
 <center>
 <div class="card" style="width: 18rem;">
-  <img src="{{shop_id_key.image.url}}" class="card-img-top" alt="...">
+  <img src="{{object.image.url}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Заголовок карточки</h5>
-    <p class="card-text">{{shop_id_key.description}}</p>
-    <p class="card-text">{{shop_id_key.country_made}}</p>
-    <p class="card-text">{{shop_id_key.color}}</p>
-    <p class="card-text">{{shop_id_key.size}}</p>
-    <p class="card-text">{{shop_id_key.cost}}</p>
+        <h1>{{object.title}}</h1>
+    <p class="card-text">{{object.description}}</p>
+    <p class="card-text">{{object.country_made}}</p>
+    <p class="card-text">{{object.color}}</p>
+    <p class="card-text">{{object.size}}</p>
+    <p class="card-text">{{object.cost}}</p>
   </div>
 </div>
-    <iframe src="{{shop_id_key.video}}" frameborder="0" width="640" height="420"></iframe>
+    <iframe src="{{object.video}}" frameborder="0" width="640" height="420"></iframe>
     <br>
-    <button><a type="button" class="btn btn-danger"><a style="text-decoration: none"  href="/watch_detail/{{shop_id_key.id}}/delete/">Удалить</a></button>
-    <button><a type="button" class="btn btn-warning"><a style="text-decoration: none" href="/watch_detail/{{shop_id_key.id}}/update/">Изменить</a></button>
+    <button><a type="button" class="btn btn-danger"><a style="text-decoration: none;"  href="/watch_detail/{{object.id}}/delete/">Удалить</a></button>
+    <button><a type="button" class="btn btn-warning"><a style="text-decoration: none" href="/watch_detail/{{object.id}}/update/">Изменить</a></button>
+
+    <table border="2">
+        <tr>
+            <td>Оценка</td> <td>Комментарий</td> <td>Дата отзыва</td>
+        </tr>
+        {% for i in object.comment_object.all %}
+        </tr>
+            <td>{{i.review_stars}}</td> <td>{{i.review_text}}</td> <td>{{i.review_created_at}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
 </center>
 {% include 'watches/footer.html' %}
