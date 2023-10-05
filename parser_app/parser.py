@@ -28,7 +28,7 @@ def get_data(html):
             {
                 "title_name": item.find("div", class_='b-content__inline_item-link').get_text(),
                 "title_url": URL + item.find('a').get('href'),
-                "image": URL + item.find("div", class_='bb-content__inline_item-cover').find("img").get("src"),
+                "image": URL + item.find("div", class_='b-content__inline_item-cover').find("img").get("src"),
             }
         )
 
