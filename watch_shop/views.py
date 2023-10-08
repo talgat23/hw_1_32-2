@@ -2,6 +2,11 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from . import models, forms
 from django.views import generic
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.views import LoginView
+from django.urls import reverse
+from django.views.generic import CreateView, ListView
 
 
 class WatchShopView(generic.ListView):
@@ -125,3 +130,27 @@ class Search(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['q'] = self.request.GET.get('q')
         return context
+
+
+class RegistrationView(CreateView):
+    form_class = forms.RegistrationNewForm
+    # form_class = UserCreationForm
+    success_url = '/'
+    template_name = 'registration/registration.html'
+
+
+class AuthLoginView(LoginView):
+    form_class = AuthenticationForm
+    template_name = 'registration/login.html'
+    success_url = '/'
+
+    def get_success_url(self):
+        return reverse('')
+
+
+class UserListView(ListView):
+    queryset = User.objects.all()
+    template_name = 'registration/user_list.html'
+
+    def get_queryset(self):
+        return User.objects.all()
