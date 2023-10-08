@@ -106,7 +106,13 @@ class RegistrationNewForm(UserCreationForm):
             'bank_name',
             'card_number',
             'feedback',
-            'country_live'
+            'country_live',
+            'city_live',
+            'marriage',
+            'user_hobby',
+            'telling_about_you',
+            'profession',
+            'language'
         )
 
         def save(self, commit=True):
